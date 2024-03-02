@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bar</title>
+  <style>
+    body {
+      background-color: palevioletred;
+      font-size: 30px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+    }
+    .bar-container4{ width: 60%;
+      margin: 2% auto;
+    text-align: center;
+        font: 300;
+        text-emphasis-color: #724caf;
+    
+    }
+    .bar-container {
+      width: 60%;
+      margin: 2% auto;
+      padding: 20px 100px; /* Adjusted padding */
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 5px;
+      position: relative; /* Added position relative */
+      border-radius: 20px;
+      border-width:14px ;
+    }
+
+    .bar {
+      width: 100%;
+      height: 20px;
+      background-color: #000000;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #724caf; /* Green color */
+      border-radius: 10px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .label {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .mile-scale {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 50px; /* Adjusted padding */
+    }
+
+    .mile {
+      font-size: 14px;
+    }
+
+    .options-container {
+      position: absolute;
+      bottom: 35%;
+      left: 50%;
+      width: 78%; /* Adjusted width */
+      height: 10%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between; /* Changed to space-between */
+ 
+    }
+    .options-container2{
+      position: absolute;
+      bottom: 15%;
+      left: 50%;
+      width: 78%; /* Adjusted width */
+      height: 10%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between; /* Changed to space-between */
+    }
+
+    .option {
+      font-size: 195%;
+      width: 45%; /* Adjusted width */
+      height: 160%;
+      background-color: #a9e5ff;
+      border: 1px solid #000000;
+      border-width:10px ;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer; /* Change cursor to pointer */
+    }
+  </style>
+</head>
+<body>
+    <h4  class="bar-container4"> What mobility choice will I make?</h4>
+  <div class="bar-container">
+    <div class="label">Distance </div>
+    <div class="mile-scale">
+        <span class="mile">.5</span>
+        <span class="mile">1</span>
+        <span class="mile">1.5</span>
+        <span class="mile">2</span>
+        <span class="mile">2.5</span>
+        <span class="mile">3</span>
+        <span class="mile">3.5</span>
+        <span class="mile">4</span>
+        <span class="mile">4.5</span>
+        <span class="mile">5</span>
+    </div>
+    <div class="bar" id="volumeBar" onclick="updateVolume(event)">
+      <div class="progress" id="volumeProgress" style="width: 50%;"></div>
+    </div>
+  </div>
+
+  <div class="bar-container">
+    <div class="label">Budget</div>
+    <div class="mile-scale">
+      <span class="mile">0$</span>
+      <span class="mile">2.90$</span>
+      <span class="mile">20$</span>
+    
+
+    </div>
+    <div class="bar" id="volumeBar2" onclick="updateVolume2(event)">
+      <div class="progress" id="volumeProgress2" style="width: 50%;"></div>
+    </div>
+  </div>
+
+  <!-- Options containers moved outside the bar containers -->
+  <div class="options-container">
+    <div class="option">Subway</div>
+    <div class="option">Bus</div>
+
+  </div>
+
+  <div class="options-container2">
+    <div class="option">Walk</div>
+    <div class="option">Bike</div>
+
+  </div>
+  <script>
+   
+      // Add event listeners to options
+      var subwayOption = document.querySelector('.options-container .option:first-child');
+      subwayOption.addEventListener('click', function() {
+        window.location.href = 'index4.html'; // Change 'subway.html' to the actual URL of your subway page
+      });
+  
+      var busOption = document.querySelector('.options-container .option:nth-child(2)');
+      busOption.addEventListener('click', function() {
+        window.location.href = 'index.3.html'; // Change 'bus.html' to the actual URL of your bus page
+      });
+  
+      var walkOption = document.querySelector('.options-container2 .option:first-child');
+      walkOption.addEventListener('click', function() {
+        window.location.href = 'index.html'; // Change 'walk.html' to the actual URL of your walk page
+      });
+  
+      var bikeOption = document.querySelector('.options-container2 .option:last-child');
+      bikeOption.addEventListener('click', function() {
+        window.location.href = 'Index.html'; // Change 'bike.html' to the actual URL of your bike page
+      });
+    
+ 
+ 
+  
+    function updateVolume(event) {
+      var volumeBar = document.getElementById('volumeBar');
+      var volumeProgress = document.getElementById('volumeProgress');
+      var widthPercent = volumeProgress.style.width; // Get the width as a string
+        
+      // Convert the width string to a float value
+      var distance = parseFloat(widthPercent.substring(0, widthPercent.length - 1));
+  
+      // Calculate new width based on click position
+      var clickX = event.clientX - volumeBar.getBoundingClientRect().left;
+      var newWidth = (clickX / volumeBar.offsetWidth) * 100;
+  
+      // Update the width of the progress bar
+      volumeProgress.style.width = newWidth + '%';
+  
+      // Check if distance is below 16%
+      var walkOption = document.querySelector('.options-container2 .option:first-child');
+      if (distance <= 35) {
+        walkOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+      } else {
+        walkOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+      }
+  
+      // Light up "Bike" when distance is around 2.5
+      var bikeOption = document.querySelector('.options-container2 .option:last-child');
+      if (distance >= 26 && distance <= 50) {
+        bikeOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+      } else {
+        bikeOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+      }
+  
+      // Light up "Bus" when distance is above 60
+      var busOption = document.querySelector('.options-container .option:last-child'); // Selecting the second option, which is the bus
+      if (distance >= 50 && distance <= 200) {
+        busOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+      } else {
+        busOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+      }
+    }
+    var subwayOption = document.querySelector('.options-container .option:first-child'); // Selecting the second option, which is the bus
+      if (distance >= 60 && distance <= 260) {
+        subwayOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+      } else {
+        subwayOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+      }
+
+    
+      function updateVolume(event) {
+  var volumeBar = document.getElementById('volumeBar');
+  var volumeProgress = document.getElementById('volumeProgress');
+  var widthPercent = volumeProgress.style.width; // Get the width as a string
+      
+  // Convert the width string to a float value
+  var distance = parseFloat(widthPercent.substring(0, widthPercent.length - 1));
+
+  // Calculate new width based on click position
+  var clickX = event.clientX - volumeBar.getBoundingClientRect().left;
+  var newWidth = (clickX / volumeBar.offsetWidth) * 100;
+
+  // Update the width of the progress bar
+  volumeProgress.style.width = newWidth + '%';
+
+  // Check if distance is below or equal to 35%
+  var walkOption = document.querySelector('.options-container2 .option:first-child');
+  if (distance <= 35) {
+    walkOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+  } else {
+    walkOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+  }
+
+  // Light up "Bike" when distance is around 2.5
+  var bikeOption = document.querySelector('.options-container2 .option:last-child');
+  if (distance >= 26 && distance <= 50) {
+    bikeOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+  } else {
+    bikeOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+  }
+
+  // Light up "Subway" when distance is above 50
+  var subwayOption = document.querySelector('.options-container .option:first-child'); 
+  if (distance >= 50 && distance <= 200) {
+    subwayOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+  } else {
+    subwayOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+  }
+
+  // Light up "Bus" when distance is above 60
+  var busOption = document.querySelector('.options-container .option:last-child'); 
+  if (distance >= 60 && distance <= 260) {
+    busOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+  } else {
+    busOption.style.backgroundColor = '#a9e5ff'; // Reset background color
+  }
+}
+  function updateVolume2(event) {
+    var volumeBar2 = document.getElementById('volumeBar2');
+    var volumeProgress2 = document.getElementById('volumeProgress2');
+    
+    // Calculate new width based on click position
+    var clickX = event.clientX - volumeBar2.getBoundingClientRect().left;
+    var newWidth = (clickX / volumeBar2.offsetWidth) * 100;
+
+    // Update the width of the progress bar
+    volumeProgress2.style.width = newWidth + '%';
+
+    // Check if the budget is under 2.90$
+    if (newWidth < 11.6) { // Assuming the max budget is 25$, 2.90$ is approximately 11.6% of it
+      // Reset the color of the "Subway" option
+      var subwayOption = document.querySelector('.options-container .option:first-child');
+      subwayOption.style.backgroundColor = '#a9e5ff';
+
+      // Reset the color of the "Bus" option
+      var busOption = document.querySelector('.options-container .option:last-child');
+      busOption.style.backgroundColor = '#a9e5ff';
+
+      // Light up "Walk" option
+      var walkOption = document.querySelector('.options-container2 .option:first-child');
+      walkOption.style.backgroundColor = '#ff69b4'; // Change background color to bright pink
+
+      // Reset the color of the "Bike" option
+      var bikeOption = document.querySelector('.options-container2 .option:last-child');
+      bikeOption.style.backgroundColor = '#a9e5ff';
+    } else {
+      // Reset the color of the "Walk" option
+      var walkOption = document.querySelector('.options-container2 .option:first-child');
+      walkOption.style.backgroundColor = '#a9e5ff';
+
+      // Reset the color of the "Bike" option
+      var bikeOption = document.querySelector('.options-container2 .option:last-child');
+      bikeOption.style.backgroundColor = '#a9e5ff';
+
+      // Reset the color of the "Subway" option
+      var subwayOption = document.querySelector('.options-container .option:first-child');
+      subwayOption.style.backgroundColor = '#a9e5ff';
+
+      // Reset the color of the "Bus" option
+      var busOption = document.querySelector('.options-container .option:last-child');
+      busOption.style.backgroundColor = '#a9e5ff';
+    }
+  }
+  </script>
+  </body>
+
+</html>

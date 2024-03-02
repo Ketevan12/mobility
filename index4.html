@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why choose the Subway</title>
+  <style>
+body {
+    background-color: pink;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+    margin: 0;
+    padding: 0;  height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: purple;
+  }
+
+  #text {    
+padding: 8%;
+    font-size: 4em; /* Larger font size */
+    color: rgb(26, 0, 128); /* Purple color */
+    animation: glitch 3s infinite alternate-reverse;
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: purple;
+  }
+
+  #text2 { 
+
+margin-left: 10%;
+    height: 18%;
+    width: 50%;
+    font-size: 35px;
+    font-display: thin;
+    color: rgb(10, 10, 10); /* Purple color */
+    cursor: pointer; /* Change cursor to pointer */
+
+ 
+  }
+  #text3 {    
+    margin-left: 20%;  height: 50%;
+    width: 70%;
+    font-size: 18px;
+    font-display: thin;
+    color: rgb(10, 10, 10); /* Purple color */
+    cursor: pointer; /* Change cursor to pointer */
+
+ 
+  }
+  @keyframes glitch {
+    0% {
+      transform: translate(700px);
+    }
+
+    100% {
+      transform: translate(2px, 2px);
+    }
+  }
+</style>
+</head>
+<body>
+<div onclick="redirectToMaps()">
+  <h1 id="text">Why choose the subway?</h1>
+</div>
+<h1 id="text2">
+    I usually rode the subway when it was raining or I had no other option.
+</h1>
+<h1 id="text3"> 
+    Instances where I had no simple choice but to take the subway was when I would go to work in brooklyn, I had no other normal option that wouldnt take over an hour to get there and cost me more than 20 dollars. I of course did have the option of taking an uber but my budget did not allow for such a decision. 
+    While the subway is comfortable it is not great for transporting materials on day 2 of analyzing my mobility choices I had a project that was too big for the turnstiles, the subway exit gate was manned by policeman. The only way I could get through was to ask for permission to pass. This created a not pleasent experiance because I felt I shouldnt need to ask for permission to use a public transport I am paying for. Imagining a somone who might have a baby carrier with them or a disability that requires them to use the exit gate showed me that while I might have been bothere for only that instance some people while using the subway constantly need to ask for permission use something as basic as a door. Another reason I might not opt for the subway is when I have a bus avalible and I have more time. This is because while the bus might take longer to get me to my destination usually its less crowded.
+</h1 >
+<script>
+  function redirectToMaps() {
+    // Change the URL to your maps page
+    window.location.href = '/Users/keti/code/project-for-core-3/mobility/index2.html';
+  }
+</script>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mobility Choices</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      border: purple;
+    }
+
+    #text {
+      font-size: 4em; /* Larger font size */
+      color: purple; /* Purple color */
+      animation: glitch 1s infinite alternate-reverse;
+      cursor: pointer; /* Change cursor to pointer */
+      border-radius: purple;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(-2px, -2px);
+      }
+      100% {
+        transform: translate(2px, 2px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div onclick="redirectToMaps()">
+    <h1 id="text">My Mobility Choices</h1>
+  </div>
+  
+  <script>
+    function redirectToMaps() {
+      // Change the URL to your maps page
+      window.location.href = '/Users/keti/code/project-for-core-3/mobility/index2.html';
+    }
+  </script>
+</body>
+</html>
