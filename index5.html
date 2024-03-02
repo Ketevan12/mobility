@@ -1,0 +1,78 @@
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Why choose the Bus</title>
+      <style>
+    body {
+        background-color: pink;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+        margin: 0;
+        padding: 0;  height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border: purple;
+      }
+    
+      #text {    
+    padding: 8%;
+        font-size: 4em; /* Larger font size */
+        color: rgb(255, 123, 0); /* Purple color */
+        animation: glitch 3s infinite alternate-reverse;
+        cursor: pointer; /* Change cursor to pointer */
+        border-radius: purple;
+      }
+    
+      #text2 { 
+    
+    margin-left: 10%;
+        height: 18%;
+        width: 50%;
+        font-size: 35px;
+        font-display: thin;
+        color: rgb(10, 10, 10); /* Purple color */
+        cursor: pointer; /* Change cursor to pointer */
+    
+     
+      }
+      #text3 {    
+        margin-left: 20%;  height: 50%;
+        width: 70%;
+        font-size: 18px;
+        font-display: thin;
+        color: rgb(10, 10, 10); /* Purple color */
+        cursor: pointer; /* Change cursor to pointer */
+    
+     
+      }
+      @keyframes glitch {
+        0% {
+          transform: translate(800px);
+        }
+    
+        100% {
+          transform: translate(2px, 2px);
+        }
+      }
+    </style>
+    </head>
+    <body>
+    <div onclick="redirectToMaps()">
+      <h1 id="text">Why choose to Walk?</h1>
+    </div>
+    <h1 id="text2">
+        I usually walk when I have the time and the weather is nice.
+    </h1>
+    <h1 id="text3"> 
+     Walking to school takes me 20 minutes so when I had the time I would walk. I didnt run into issues when walking. If I walked this allowed me to have the time to talk on the phone, listen to music and in general enjoy the realxing walk (get some excersice). The times I would opt out of a walk was when I had exactly 20 minutes to get to school or any other place I needed to be at a specific time. When I knew I couldnt stroll and not rush I usually opted out of walking. Me being able bodied allowed me to have the choice of either walking or taking another form of transportation.
+    <script>
+      function redirectToMaps() {
+        // Change the URL to your maps page
+        window.location.href = '/Users/keti/code/project-for-core-3/mobility/index2.html';
+      }
+    </script>
+    </body>
+    </html>
+    
+    
